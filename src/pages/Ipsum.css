@@ -13,6 +13,7 @@ button {
   font-weight: 500;
   color: #fff;
   z-index: 2;
+  margin: 5px;
 }
 
 button::after {
