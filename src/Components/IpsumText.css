@@ -1,0 +1,7 @@
+.cont {
+  border-radius: 26px;
+  background: #212121;
+  box-shadow: inset -8px -8px 16px #141414, inset 8px 8px 16px #2e2e2e;
+  padding: 20px;
+  margin: 30px;
+}

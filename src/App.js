@@ -7,7 +7,7 @@ import { BrowserRouter as Router, Route, Link, Routes } from "react-router-dom";
 function App() {
   return (
     <Router>
-      <div className="App-background">
+      <div>
         <ul>
           <li>
             <Link to="/">Home</Link>

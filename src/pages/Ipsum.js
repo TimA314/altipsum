@@ -1,5 +1,6 @@
 import React from "react";
 import { useState } from "react";
+import IpsumText from "../Components/IpsumText";
 import { getNews } from "../services/newsService";
 import "./Ipsum.css";
 
@@ -9,7 +10,11 @@ export default function Ipsum() {
   function handleNewsGenerate(e) {
     e.preventDefault();
     getNews()
-      .then((res) => setNewsData(res.data.articles))
+      .then((res) => {
+        // console.log(res.data.articles);
+        let data = res.data.articles.map(({ description }) => description);
+        setNewsData(data);
+      })
       .catch((err) => console.log(err));
     console.log(newsData);
   }
@@ -17,23 +22,11 @@ export default function Ipsum() {
   return (
     <div className="background">
       <h1>Ipsum</h1>
-      <form>
-        <div className="mb-3">
-          <label htmlFor="amount" className="form-label">
-            Paragraphs:
-          </label>
-          <input
-            type="number"
-            className="form-control"
-            name="amount"
-            placeholder="5"
-          ></input>
-          <button type="submit" className="btn" onClick={handleNewsGenerate}>
-            Generate
-          </button>
-        </div>
-      </form>
-      <article></article>
+      <br />
+      <button type="submit" className="btn" onClick={handleNewsGenerate}>
+        Generate
+      </button>
+      <IpsumText IpsumText={newsData} />
     </div>
   );
 }
