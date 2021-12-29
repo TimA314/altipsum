@@ -79,6 +79,6 @@ button:active {
   --border-width: 5px;
 }
 
-.background {
-  background-color: #212121;
+* {
+  color: white;
 }
