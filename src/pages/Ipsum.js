@@ -11,20 +11,19 @@ export default function Ipsum() {
     e.preventDefault();
     getNews()
       .then((res) => {
-        // console.log(res.data.articles);
         let data = res.data.articles.map(({ description }) => description);
         setNewsData(data);
       })
       .catch((err) => console.log(err));
-    console.log(newsData);
   }
 
   return (
     <div className="background">
       <h1>Ipsum</h1>
+      <p>Generate Ipsum of your choice</p>
       <br />
       <button type="submit" className="btn" onClick={handleNewsGenerate}>
-        Generate
+        Generate News
       </button>
       <IpsumText IpsumText={newsData} />
     </div>
